@@ -1,0 +1,342 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Scheduled posting \nWrite a tweet every 6 hours and randomize the minutes so it looks natural.\n",
+        "height": 265,
+        "width": 389
+      },
+      "id": "2ce0a1a1-5ac8-4ae7-bdd9-d268d2094cbf",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        544,
+        272
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Configure influencer profile \nSet your niche, writing style, and inspirations.\n",
+        "height": 265,
+        "width": 389
+      },
+      "id": "1ba1879f-05cf-42e1-80fb-99725904cc3e",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        992,
+        272
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Generate tweet\nAI writes a C++ nerd tweet based on your profile.\n",
+        "height": 265,
+        "width": 389
+      },
+      "id": "250db081-7650-402a-bdc3-3a76922b405d",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1424,
+        272
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Validate tweet\nIf it's over 280 chars, regenerate.\n",
+        "height": 265,
+        "width": 389
+      },
+      "id": "68467f8c-2602-4212-a664-90f5588bdc57",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1872,
+        272
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Post the tweet\nTweet to your X account.\n",
+        "height": 265,
+        "width": 389
+      },
+      "id": "29247486-7f1b-4985-ac14-7476cac51f2a",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2304,
+        272
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## On-demand posting \nRun workflow manually to generate a tweet.\n",
+        "height": 265,
+        "width": 389
+      },
+      "id": "bee4adb1-6d04-47f7-bfe5-3c3edc07bec9",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        544,
+        592
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "text": "={{ $json.text }}",
+        "additionalFields": {}
+      },
+      "id": "f7790e42-89fd-4d34-959f-3782ddeeb8e0",
+      "name": "Post tweet1",
+      "type": "n8n-nodes-base.twitter",
+      "position": [
+        2496,
+        400
+      ],
+      "typeVersion": 2,
+      "credentials": {
+        "twitterOAuth2Api": {
+          "id": "oDwVP7N4u0cGqTcK",
+          "name": "X account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 6,
+              "triggerAtMinute": "={{ Math.floor(Math.random() * 60) }}"
+            }
+          ]
+        }
+      },
+      "id": "41e8b680-2612-4350-a139-b01b492264a6",
+      "name": "Schedule posting every 6 hours1",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        768,
+        384
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "conditions": [
+            {
+              "id": "0a6ebbb6-4b14-4c7e-9390-215e32921663",
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              },
+              "leftValue": "={{ $json.message.content.tweet.length }}",
+              "rightValue": 280
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "750db5c9-2d87-4547-8ce4-d5376d268ed1",
+      "name": "Verify tweet constraints1",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        2112,
+        384
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "45268b04-68a1-420f-9ad2-950844d16af1",
+              "name": "niche",
+              "type": "string",
+              "value": "You are a hardcore C++ programming nerd. You love pointers, templates, memory management, compiler internals, UB jokes, and modern C++ features like concepts, ranges, coroutines, constexpr, metaprogramming."
+            },
+            {
+              "id": "d95f4a1c-ab1c-4eca-8732-3d7a087f82d8",
+              "name": "style",
+              "type": "string",
+              "value": "Your tweets are geeky, sarcastic, and technical. You mix humor with deep C++ insight. You sometimes flex by explaining weird corner cases of the standard."
+            },
+            {
+              "id": "1ee088f7-7021-48c0-bcb7-d1011eb0db3d",
+              "name": "inspiration",
+              "type": "string",
+              "value": "You are inspired by Bjarne Stroustrup, Herb Sutter, Jason Turner, Meeting C++, and years of debugging segmentation faults at 3 AM. You tweet like someone who reads the C++ standard for fun."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ad6dde03-c1c8-4693-b21d-75d72eca0596",
+      "name": "Configure your influencer profile1",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1216,
+        384
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Write a C++ programming tweet that is certain to go viral and writes the tweets from experience rather than like a an AI",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "You are a successful C++ Twitter influencer."
+            },
+            {
+              "message": "=Your style: {{ $json.style }}"
+            },
+            {
+              "message": "=Your inspirations: {{ $json.inspiration }}"
+            },
+            {
+              "message": "=Your niche: {{ $json.niche }}"
+            },
+            {
+              "message": "=Answer with only the tweet. Keep it under 280 characters. Add hashtags and emojis if relevant and doesn't add \" in the beginning and ending and give a refined output for the tweet to stand out. Current time: {{DateTime.now()}}"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "id": "5bbb9652-086d-4c0a-b1e3-874da45d9aec",
+      "name": "Basic LLM Chain1",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "position": [
+        1520,
+        384
+      ],
+      "typeVersion": 1.7
+    },
+    {
+      "parameters": {
+        "model": "meta-llama/llama-3.3-70b-instruct:free",
+        "options": {
+          "maxRetries": 2
+        }
+      },
+      "id": "b69d6a71-af44-48f4-b969-ed8964b74716",
+      "name": "OpenRouter Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "position": [
+        1568,
+        608
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "openRouterApi": {
+          "id": "3ziLUAoYiTiyIDgF",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "2710b06e-5205-4c3a-b119-17f02bb7bcc4",
+      "name": "Trigger posting manually",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        784,
+        704
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "connections": {
+    "Schedule posting every 6 hours1": {
+      "main": [
+        [
+          {
+            "node": "Configure your influencer profile1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify tweet constraints1": {
+      "main": [
+        [
+          {
+            "node": "Post tweet1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Configure your influencer profile1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Configure your influencer profile1": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain1": {
+      "main": [
+        [
+          {
+            "node": "Verify tweet constraints1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger posting manually": {
+      "main": [
+        [
+          {
+            "node": "Configure your influencer profile1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "instanceId": "0f17e1a6e055c52a06ddbc772cc4e401b9fb84ab0d49ad19188239f80061f0d2"
+  }
+}
