@@ -1,6 +1,6 @@
 # My Curated n8n Explorations
 
-This repository showcases a collection of hands-on experiments and discoveries made while working with n8n. Each exploration highlights a specific idea, integration, or workflow pattern that proved interesting or useful during testing.
+This repository showcases a collection of hands-on experiments and discoveries made while working with n8n. Each exploration highlights a specific idea, integration.
 
 ## Repository Structure
 
