@@ -2,97 +2,20 @@
   "nodes": [
     {
       "parameters": {
-        "content": "💡 Later, activate this workflow and share the public chat URL to let others talk to your AI Agent!",
-        "height": 252,
-        "width": 300,
-        "color": 7
-      },
-      "id": "c68ca950-2df0-4a96-97cc-bb57635de6f4",
-      "cid": "Ikx1Y2FzIFBleXJpbiI",
-      "name": "Sticky Note12",
-      "type": "n8n-nodes-base.stickyNote",
-      "creator": "Lucas Peyrin",
-      "position": [
-        576,
-        -16
-      ],
-      "typeVersion": 1,
-      "notes": "© 2025 Lucas Peyrin"
-    },
-    {
-      "parameters": {
-        "content": "Your AI agent can:\n1. **Receive** messages from the chat\n2. **Select** the right tools (e.g., weather, news, email)\n3. **Respond** with live, helpful answers\n\n\n**Open the AI agent node** and edit the **System Message** to adjust your agent’s thinking, behavior, and replies.\n\n\n\n\n\n\n\n\n\n\n",
-        "height": 348,
-        "width": 396,
-        "color": 7
-      },
-      "id": "55c1f9ef-39bb-436a-a26d-183e6dcea39e",
-      "cid": "Ikx1Y2FzIFBleXJpbiI",
-      "name": "Sticky Note13",
-      "type": "n8n-nodes-base.stickyNote",
-      "creator": "Lucas Peyrin",
-      "position": [
-        960,
-        -112
-      ],
-      "typeVersion": 1,
-      "notes": "© 2025 Lucas Peyrin"
-    },
-    {
-      "parameters": {
-        "content": "\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis node helps your agent remember the last few messages to stay on topic.",
-        "height": 260,
-        "width": 308,
-        "color": 7
-      },
-      "id": "f04470c1-7b29-4fc7-a1c1-8aa1c82ffa19",
-      "cid": "Ikx1Y2FzIFBleXJpbiI",
-      "name": "Sticky Note15",
-      "type": "n8n-nodes-base.stickyNote",
-      "creator": "Lucas Peyrin",
-      "position": [
-        960,
-        320
-      ],
-      "typeVersion": 1,
-      "notes": "© 2025 Lucas Peyrin"
-    },
-    {
-      "parameters": {
-        "content": "\n\n\n\n\n\n\n\n\n\n\n\n\nThese tools let your agent access real-world data or take actions. Add more to expand its abilities!\n\nClick the ➕ under the agent’s Tool input to add:\n- Google Calendar (Get Upcoming Events)\n- Gmail (Send an Email) (Gmail)",
-        "height": 324,
-        "width": 372,
-        "color": 7
-      },
-      "id": "9743cd67-d4b7-49f7-9032-4130290d53f9",
-      "cid": "Ikx1Y2FzIFBleXJpbiI",
-      "name": "Sticky Note16",
-      "type": "n8n-nodes-base.stickyNote",
-      "creator": "Lucas Peyrin",
-      "position": [
-        1360,
-        320
-      ],
-      "typeVersion": 1,
-      "notes": "© 2025 Lucas Peyrin"
-    },
-    {
-      "parameters": {
         "toolDescription": "Gets the latest blog posts about any rss feed.",
         "url": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('URL', `Use one of:\n- https://feeds.bbci.co.uk/news/world/rss.xml (BBC World – global headlines)\n- https://www.aljazeera.com/xml/rss/all.xml (Al Jazeera English – in‑depth global coverage)\n- http://rss.cnn.com/rss/edition_world.rss (CNN World – breaking news worldwide)\n- https://techcrunch.com/feed/ (TechCrunch – global tech & startup news)\n- http://news.ycombinator.com/rss (Hacker News – tech community headlines)\n- https://n8n.io/blog/rss (n8n Blog – updates & tutorials)\n- https://www.bonappetit.com/feed/recipes-rss-feed/rss (Bon Appétit – recent recipes list)\n- https://www.endsreport.com/rss/news-and-analysis (ENDS Report – environmental law & policy news)\n- https://medlineplus.gov/groupfeeds/new.xml (MedlinePlus – health topics & wellness updates)`, 'string') }}",
         "options": {}
       },
-      "id": "31d8db25-de05-46db-9d67-8352498de31d",
+      "id": "31fe5562-2135-45e3-b249-162f64077838",
       "cid": "Ikx1Y2FzIFBleXJpbiI",
       "name": "Get News",
       "type": "n8n-nodes-base.rssFeedReadTool",
-      "creator": "Lucas Peyrin",
+      "creator": "cidopenup0",
       "position": [
-        1504,
-        368
+        224,
+        656
       ],
-      "typeVersion": 1.2,
-      "notes": "© 2025 Lucas Peyrin"
+      "typeVersion": 1.2
     },
     {
       "parameters": {
@@ -137,14 +60,14 @@
         },
         "options": {}
       },
-      "id": "652f5386-2359-4cd7-af11-d3a5181b6975",
+      "id": "3a45798c-1276-469e-9d39-25699d8f07b9",
       "cid": "Ikx1Y2FzIFBleXJpbiI",
       "name": "Get Weather",
       "type": "n8n-nodes-base.httpRequestTool",
-      "creator": "Lucas Peyrin",
+      "creator": "cidopenup0",
       "position": [
-        1392,
-        368
+        112,
+        656
       ],
       "notesInFlow": true,
       "typeVersion": 4.2
@@ -155,17 +78,16 @@
           "systemMessage": "=<role>\nYou are the n8n Demo AI Agent, a friendly and helpful assistant designed to showcase the power of AI agents within the n8n automation platform. Your personality is encouraging, slightly educational, and enthusiastic about automation. Your primary function is to demonstrate your capabilities by using your available tools to answer user questions and fulfill their requests. You are conversational.\n</role>\n\n<instructions>\n<goal>\nYour primary goal is to act as a live demonstration of an AI Agent built with n8n. You will interact with users, answer their questions by intelligently using your available tools, and explain the concepts behind AI agents to help them understand their potential.\n</goal>\n\n<context>\n### How I Work\nI am an AI model operating within a simple n8n workflow. This workflow gives me two key things:\n1.  **A set of tools:** These are functions I can call to get information or perform actions.\n2.  **Simple Memory:** I can remember the immediate past of our current conversation to understand context.\n\n### My Purpose\nMy main purpose is to be a showcase. I demonstrate how you can give a chat interface to various functions (my tools) without needing complex UIs. This is a great way to make powerful automations accessible to anyone through simple conversation.\n\n### My Tools Instructions\nYou must choose one of your available tools if the user's request matches its capability. You cannot perform these actions yourself; you must call the tool.\n\n### About AI Agents in n8n\n- **Reliability:** While I can use one tool at a time effectively, more advanced agents can perform multi-step tasks. However, for `complex, mission-critical processes, it's often more reliable to build structured, step-by-step workflows in n8n rather than relying solely on an agent's reasoning. Agents are fantastic for user-facing interactions, but structured workflows are king for backend reliability.\n- **Best Practices:** A good practice is to keep an agent's toolset focused, typically under 10-15 tools, to ensure reliability and prevent confusion.\n\n### Current Date & Time\n{{ $now }}\n</context>\n\n<output_format>\n- Respond in a friendly, conversational, and helpful tone.\n- When a user's request requires a tool, first select the appropriate tool. Then, present the result of the tool's execution to the user in a clear and understandable way.\n- Be proactive. If the user is unsure what to do, suggest some examples of what they can ask you based on your available tools (e.g., Talk about your tools and what you know about yourself).\n</output_format>\n</instructions>"
         }
       },
-      "id": "8f648bdb-a7f4-4023-a231-fd42382b6f43",
+      "id": "23cef536-ba01-4f34-9e7d-918ea0d9029d",
       "cid": "Ikx1Y2FzIFBleXJpbiI",
       "name": "Your First AI Agent",
       "type": "@n8n/n8n-nodes-langchain.agent",
-      "creator": "Lucas Peyrin",
+      "creator": "cidopenup0",
       "position": [
-        1040,
-        80
+        -240,
+        368
       ],
-      "typeVersion": 2.2,
-      "notes": "© 2025 Lucas Peyrin"
+      "typeVersion": 2.2
     },
     {
       "parameters": {
@@ -179,34 +101,32 @@
           "responseMode": "lastNode"
         }
       },
-      "id": "eaa79194-9ce2-4408-bac7-c28f7a669f5b",
+      "id": "74da73bd-6c65-475c-b138-1da6e1520fbb",
       "cid": "Ikx1Y2FzIFBleXJpbiI",
       "name": "Example Chat",
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
-      "creator": "Lucas Peyrin",
+      "creator": "cidopenup0",
       "position": [
-        672,
-        80
+        -608,
+        368
       ],
       "webhookId": "e5616171-e3b5-4c39-81d4-67409f9fa60a",
-      "typeVersion": 1.1,
-      "notes": "© 2025 Lucas Peyrin"
+      "typeVersion": 1.1
     },
     {
       "parameters": {
         "contextWindowLength": 30
       },
-      "id": "1651d5e1-a612-472d-ab63-ff41fdb18ecf",
+      "id": "6f6a93f8-20fc-4a1d-8759-e8992764fdfb",
       "cid": "Ikx1Y2FzIFBleXJpbiI",
       "name": "Conversation Memory",
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-      "creator": "Lucas Peyrin",
+      "creator": "cidopenup0",
       "position": [
-        1072,
-        368
+        -208,
+        656
       ],
-      "typeVersion": 1.3,
-      "notes": "© 2025 Lucas Peyrin"
+      "typeVersion": 1.3
     },
     {
       "parameters": {
@@ -214,36 +134,22 @@
           "temperature": 0
         }
       },
-      "id": "121b8a5d-c434-4141-bb89-f7891cdd4f52",
+      "id": "e7a6cd10-72b7-4b30-98cd-3def31d18cbf",
       "cid": "Ikx1Y2FzIFBleXJpbiI",
       "name": "Connect Gemini",
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
-      "creator": "Lucas Peyrin",
+      "creator": "cidopenup0",
       "position": [
-        672,
-        368
+        -608,
+        656
       ],
       "typeVersion": 1,
-      "notes": "© 2025 Lucas Peyrin"
-    },
-    {
-      "parameters": {
-        "content": "\n\n\n\n\n\n\n\n\n\n\n\n1. [In Google AI Studio](https://aistudio.google.com/app/apikey) click **“Create API key in new project”** and copy it.\n\n2. Open the ```Connect Gemini``` node:\n   * **Select Credential → Create New**\n   * Paste into **API Key** and **Save**\n",
-        "height": 316,
-        "width": 294,
-        "color": 3
-      },
-      "id": "20c313cc-d6e2-4767-bf35-69152dc785fe",
-      "cid": "Ikx1Y2FzIFBleXJpbiI",
-      "name": "Sticky Note",
-      "type": "n8n-nodes-base.stickyNote",
-      "creator": "Lucas Peyrin",
-      "position": [
-        576,
-        320
-      ],
-      "typeVersion": 1,
-      "notes": "© 2025 Lucas Peyrin"
+      "credentials": {
+        "googlePalmApi": {
+          "id": "OjUcO9PwnGW17sY5",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
     }
   ],
   "connections": {
@@ -305,6 +211,7 @@
   },
   "pinData": {},
   "meta": {
+    "templateCredsSetupCompleted": true,
     "instanceId": "0f17e1a6e055c52a06ddbc772cc4e401b9fb84ab0d49ad19188239f80061f0d2"
   }
 }
